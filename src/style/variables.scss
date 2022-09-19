@@ -1,0 +1,25 @@
+//colors
+$text-color: #000000;
+$main-color: #FDBF26;
+$secondary-color: #F1F0F0;
+$background-color: #F7F7F7;
+
+//font-sizing
+$rest-name-fz: 24px;
+$rest-descr-fz: 12px;
+$category-name-fz: 18px;
+$product-name-fz: 16px;
+$product-descr-fz: 12px;
+$price-fz: 14px;
+$translate-btn-fz: 13px;
+
+//transitions
+$transition: all 0.4s;
+
+//sahdow 
+$shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+//checkbox
+$on: url('../../resourses/modifierItem/radio.svg');
+$off: url('../../resourses/modifierItem/radio_on.svg');

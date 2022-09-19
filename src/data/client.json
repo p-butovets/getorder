@@ -1,0 +1,51 @@
+{
+    "status": "operation_success",
+    "message": "",
+    "data": {
+        "id": 52,
+        "organization": "IlMolino",
+        "block": 0,
+        "registerDate": "2020-04-27 08:51:19",
+        "requireReset": 0,
+        "description": null,
+        "vat": 0,
+        "client": {
+            "id": 29,
+            "name": "ilmolino",
+            "published": true,
+            "is_pay_online": false,
+            "is_auto_accept": false,
+            "is_auto_send": true,
+            "is_trial": false,
+            "is_email_notif": 0,
+            "customer_data": null,
+            "is_subscribe": false,
+            "locale_id": 3,
+            "currency_id": 4
+        },
+        "client_id": 29,
+        "bg": {
+            "full_bg_webp": "https:\/\/api.getorder.biz\/pwa_bg\/29\/image\/29\/1150\/429\/bg.webp",
+            "full_bg_png": "https:\/\/api.getorder.biz\/pwa_bg\/29\/image\/29\/1150\/429\/bg.png",
+            "mobile_bg_webp": "https:\/\/api.getorder.biz\/pwa_bg\/29\/image\/29\/650\/450\/bg.webp",
+            "mobile_bg_png": "https:\/\/api.getorder.biz\/pwa_bg\/29\/image\/29\/650\/450\/bg.png",
+            "slides": [
+                {
+                    "webp": "https:\/\/api.getorder.biz\/pwa_bg\/46513\/image_id\/29\/1150\/430\/rest_46513.webp",
+                    "png": "https:\/\/api.getorder.biz\/pwa_bg\/46513\/image_id\/29\/1150\/430\/rest_46513rest.png",
+                    "title": null,
+                    "id": 46513
+                }
+            ]
+        },
+        "logo": {
+            "webp": "https:\/\/api.getorder.biz\/pwa_logo\/29\/image\/29\/80\/80\/bg.webp",
+            "png": "https:\/\/api.getorder.biz\/pwa_logo\/29\/image\/29\/80\/80\/bg.png"
+        },
+        "pwa_settings": {
+            "color_scheme": "dark",
+            "primary_color": "#7DA491",
+            "secondary_color": "#A15016"
+        }
+    }
+}

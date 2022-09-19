@@ -1,0 +1,21 @@
+@import '../../style/variables.scss';
+
+.lang-toggler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 68px;
+    height: 40px;
+
+    background: $secondary-color;
+    border-radius: 20px;
+
+    font-size: $translate-btn-fz;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: -0.03em;
+    color: $text-color;
+}
