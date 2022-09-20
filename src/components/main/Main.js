@@ -5,11 +5,12 @@ import SidebarRight from '../sidebarRight/SidebarRight';
 import MainContent from '../mainContent/MainContent';
 import Heading from "../heading/Heading";
 import OrderType from '../orderType/OrderType';
+import RestaurantList from '../restaurantList/RestaurantList';
 import './main.scss';
 
 const Main = (props) => {
 
-    const { setOrderType } = props;
+    const { setOrderType, setOrderRestaurant } = props;
 
     return (
         <section className='main'>
@@ -31,6 +32,7 @@ const Main = (props) => {
                             <SidebarLeft />
                             <MainContent>
                                 <Heading description={"Виберіть ресторан:"} />
+                                <RestaurantList setOrderRestaurant={setOrderRestaurant} />
                             </MainContent>
                             <SidebarRight />
                         </>
