@@ -1,0 +1,148 @@
+@import '../../style/variables.scss';
+
+.product {
+    color: $text-color;
+    padding: 10px 0 10px 14px;
+    margin-top: 20px;
+
+    transition: $transition;
+    min-height: 119px;
+    position: relative;
+    border-bottom: 1px solid $secondary-color;
+
+    &__wrapper {
+        min-height: 119px;
+        min-width: 336px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 13px;
+        align-items: center;
+        cursor: pointer;
+
+        &_expanded {
+            flex-direction: column;
+        }
+    }
+
+    &__img {
+        // width: 121px;
+        width: 100%;
+        // height: 90px;
+        object-fit: cover;
+
+        &_expanded {
+            // width: 338px;
+            // height: 251px;
+        }
+    }
+
+    &__img-place {
+        width: 121px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: $transition;
+
+        &_expanded {
+            width: 338px;
+        }
+    }
+
+    &__info-card {
+        width: 202px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-height: 119px;
+
+        &_expanded {
+            width: 326px;
+        }
+    }
+
+    &__name {
+        font-weight: 800;
+        font-size: $product-name-fz;
+        line-height: 20px;
+
+        &_expanded {
+            font-size: $category-name-fz;
+            line-height: 23px;
+        }
+    }
+
+    &__description {
+        font-weight: 500;
+        font-size: $product-descr-fz;
+        line-height: 15px;
+        // height: 32px;
+        padding-top: 6px;
+        padding-bottom: 8px;
+    }
+
+    &__badges {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        margin-top: 8px;
+
+        &_expanded {
+            display: none;
+        }
+    }
+
+    &__price {
+        width: 67px;
+        height: 26px;
+        background: $main-color;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 800;
+        font-size: $price-fz;
+        line-height: 18px;
+    }
+
+    &__badge {
+        width: 67px;
+        height: 26px;
+        background: $secondary-color;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        font-size: $product-descr-fz;
+        line-height: 15px;
+    }
+}
+
+@media (min-width: 425px) {
+    .product__info-card {
+        width: 300px;
+    }
+}
+
+@media (min-width: 768px) {
+    .product {
+        &__wrapper {
+            justify-content: center;
+        }
+
+        &__name {
+            font-size: $category-name-fz;
+        }
+
+        &__info-card {
+            width: 500px;
+        }
+
+        &__description {
+            font-size: $product-name-fz;
+        }
+    }
+}
