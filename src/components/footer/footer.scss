@@ -1,0 +1,12 @@
+@import '../../style/variables.scss';
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1rem;
+    min-height: 48px;
+    margin-top: auto;
+    padding-top: 46px;
+}

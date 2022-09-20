@@ -1,4 +1,4 @@
-import logo from '../../resourses/logo/logo.svg';
+import logo from '../../resourses/logo/logo.png';
 import './logo.scss';
 
 const Logo = () => {

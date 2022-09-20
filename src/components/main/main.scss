@@ -1,0 +1,35 @@
+@import '../../style/variables.scss';
+
+.main {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    &-content {
+        width: 52%;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &-sidebar {
+        width: 24%;
+        padding: 0 10px 10px 10px;
+        &-left {
+
+        }
+        &-right {
+
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .main-sidebar {
+        display: none;
+    }
+    
+    .main-content {
+        width: 100%;
+    }
+}

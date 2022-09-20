@@ -19,10 +19,10 @@ const MainSlider = () => {
                     <img src={slide} alt="slide" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src='https://bagatolososia.kiev.ua/image/cache/catalog/Sushi-Roli/__2%20(4)-1000x1000.jpg' alt="slide" />
+                    <img src={slide} alt="slide" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src='https://bagatolososia.kiev.ua/image/cache/catalog/Sushi-Roli/FV2-1000x1000.jpg' alt="slide" />
+                    <img src={slide} alt="slide" />
                 </SwiperSlide>
             </Swiper>
         </section>

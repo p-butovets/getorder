@@ -1,0 +1,18 @@
+@import '../../style/variables.scss';
+
+
+.copyrights {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: $text-color;
+    text-decoration: none;
+
+    &-text {
+        font-weight: 500;
+        font-size: $price-fz;
+        line-height: 17px;
+        letter-spacing: -0.03em;
+    }
+}
