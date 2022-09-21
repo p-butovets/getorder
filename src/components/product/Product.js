@@ -1,6 +1,7 @@
 import { useState } from 'react';
 // import Modifier from '../modifier/Modifier';
 // import ProductFooter from '../productFooter/ProductFooter';
+import plus from "../../resourses/products/plus.svg";
 import './product.scss';
 
 
@@ -24,22 +25,19 @@ const Product = (props) => {
     return (
         <div className={`product`}>
 
-            <div className={`product__wrapper`}>
-
-                <div className={`product__img-place`}>
-                    <img className={`product__img`} src={img} alt={name} />
+            <div className="product__view">
+                <div className="product__info">
+                    <div className="product__name">{name}</div>
+                    <div className="product__description">{description}</div>
                 </div>
-
-                <div className={`product__info-card`} >
-                    <div className={`product__name`}>{name}</div>
-                    <div className={`product__description`}>{description}</div>
-                    <div className={`product__badges`}>
-                        <div className="product__price">{price}</div>
-                        <div className="product__badge">новинка</div>
-                    </div>
-                </div>
-
+                <img src={img} alt={name} className="product__img" />
             </div>
+
+            <div className="product__func">
+                <div className="product__price">{price}</div>
+                <img src={plus} alt="add" />
+            </div>
+
 
             {/* {modifiers} */}
 

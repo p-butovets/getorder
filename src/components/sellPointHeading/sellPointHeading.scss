@@ -9,6 +9,29 @@
         font-size: 36px;
         line-height: 45px;
     }
+    &__description {
+        font-weight: 500;
+        font-size: $rest-descr-fz;
+        line-height: 15px;
+    }
+    &__info {
+        height: 40px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 22px;
+        // padding-top: 7px;
+    }
+}
+
+.info-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:7px;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 18px;
 }
 
 @media (max-width: 767.98px) {
