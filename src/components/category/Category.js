@@ -64,10 +64,12 @@ const Category = (props) => {
     })
 
     return (
-        <div className="container">
+        <>
             <div className="category__name" ref={categoryRef} onScroll={handleScroll} id={id}>{categoryName}</div>
-            {productsList}
-        </div>
+            <div className="category__products">
+                {productsList}
+            </div>
+        </>
     )
 }
 
