@@ -1,10 +1,9 @@
-import Social from '../social/Social';
 import './sidebarRight.scss';
 
-const SidebarRight = () => {
+const SidebarRight = (props) => {
     return (
         <div className="main-sidebar sidebar-right">
-            <Social class={'social'} />
+            {props.children}
         </div>
     )
 }

@@ -1,9 +1,11 @@
 
 import './sidebarLeft.scss';
 
-const SidebarLeft = () => {
+const SidebarLeft = (props) => {
     return (
-        <div className="main-sidebar sidebar-left"></div>
+        <div className="main-sidebar sidebar-left">
+            {props.children}
+        </div>
     )
 }
 

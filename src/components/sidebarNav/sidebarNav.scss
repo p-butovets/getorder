@@ -1,0 +1,22 @@
+@import '../../style/variables.scss';
+
+.nav {
+    &-title {
+        color: #000000;
+        font-weight: 800;
+        font-size: $category-name-fz;
+        line-height: 23px;
+    }
+    &-list {
+        padding-top: 29px;
+    }
+    &-item {
+        list-style: none;
+        font-weight: 500;
+        font-size: $product-name-fz;
+        line-height: 20px;
+        color: #000000;
+        padding-bottom: 30px;
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,17 @@
+@import '../../style/variables.scss';
+
+.category__name {
+    font-weight: 800;
+    font-size: $category-name-fz;
+    line-height: 23px;
+    color: $text-color;
+    padding: 29px 19px 0 14px;
+    height: 100%;
+    max-width: 1024px;
+}
+
+@media (min-width: 768px) {
+    .category__name {
+        font-size: $rest-name-fz;
+    }
+}
