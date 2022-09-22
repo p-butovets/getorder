@@ -18,7 +18,8 @@ const Cart = () => {
             setPositionStyle({
                 position: "fixed",
                 top: "10px",
-                width: "20%"
+                width: "20%",
+                maxWidth: "239px"
             })
             :
             setPositionStyle({ position: "static" })
