@@ -1,0 +1,43 @@
+@import '../../style/variables.scss';
+
+.cart-item {
+    color: $text-color;
+    font-weight: 700;
+    font-size: $price-fz;
+    line-height: 18px;
+    padding-top: 20px;
+    width: 100%;
+    position: relative;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__name {
+        font-weight: 500;
+    }
+    &__mods {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    &__mod {
+        display:inline-block;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        color: #8A8A8A;
+    }
+    &__func {
+        color: $main-color;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__changer, .plus, .minus {
+        cursor: pointer;
+    }
+}
