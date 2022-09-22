@@ -15,7 +15,7 @@ const SidebarNav = (props) => {
     //на 300рх от верха - ставим positon fixed
     const handleScroll = () => {
         return window.scrollY >= 300 ?
-            setPositionStyle({ position: "fixed", top: "0" })
+            setPositionStyle({ position: "fixed", top: "10px" })
             :
             setPositionStyle({ position: "relative" })
     };

@@ -11,6 +11,7 @@ import Social from '../social/Social';
 import SellPointHeading from '../sellPointHeading/SellPointHeading';
 import SidebarNav from "../sidebarNav/SidebarNav";
 import Menu from "../menu/Menu";
+import Cart from "../cart/Cart";
 import './main.scss';
 
 //как-будто запросы на бекенд
@@ -120,7 +121,7 @@ const Main = () => {
                                 />
                             </MainContent>
                             <SidebarRight>
-                                <div>Корзина</div>
+                                <Cart />
                             </SidebarRight>
                         </>
                     } />

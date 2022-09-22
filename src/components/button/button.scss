@@ -1,0 +1,27 @@
+@import "../../style/variables.scss";
+
+.button {
+    display: block;
+    margin: 0 auto;
+    background-color: $main-color;
+    height: 51px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 18px; 
+    color: $text-color;
+    text-transform: uppercase;
+    cursor: pointer;
+    &_wide {
+        width: 96%;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .button {
+        font-size: 12px;
+    }
+}
