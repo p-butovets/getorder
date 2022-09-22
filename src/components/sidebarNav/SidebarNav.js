@@ -1,12 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import './sidebarNav.scss';
 
 const SidebarNav = (props) => {
 
     const { menu } = props;
 
+    //для установки активного элемента меню собираем рефы
+    const [itemRefs, setItemRefs] = useState([])
+    const addRef = (newRef) => {
+        setItemRefs(refs => ([...refs, newRef]))
+    }
+
+    /*Функция снимает className active со всех кнопок */
+    const toggleActiveClass = (ref) => {
+        for (let i in itemRefs) {
+            const name = itemRefs[i] === ref ? 'nav-link nav-link_active' : 'nav-link'
+            itemRefs[i].current.className = name
+        }
+    }
+
     //для закрепления блока при скролле
-    const [positionStyle, setPositionStyle] = useState({ position: "relative" });
+    const [positionStyle, setPositionStyle] = useState({ position: "static" });
     // слушаем скролл
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -17,7 +31,7 @@ const SidebarNav = (props) => {
         return window.scrollY >= 300 ?
             setPositionStyle({ position: "fixed", top: "10px" })
             :
-            setPositionStyle({ position: "relative" })
+            setPositionStyle({ position: "static" })
     };
 
     const items = menu.data.sections.map(item => {
@@ -26,6 +40,8 @@ const SidebarNav = (props) => {
                 id={item.uniq_id}
                 key={item.uniq_id}
                 name={item.name}
+                addRef={addRef}
+                toggleActiveClass={toggleActiveClass}
             />
         )
     })
@@ -41,10 +57,22 @@ const SidebarNav = (props) => {
 
 const Item = (props) => {
 
-    const { name, id } = props;
+    const { name, id, addRef, toggleActiveClass } = props;
+
+    const itemRef = useRef(null);
+
+    useEffect(() => {
+        addRef(itemRef)
+    }, [])
 
     return (
-        <a className="nav-item" href={`#${id}`}><li className="nav-item">{name}</li></a>
+        <a
+            onClick={() => toggleActiveClass(itemRef)}
+            className="nav-link"
+            href={`#${id}`}
+            ref={itemRef}>
+            <li>{name}</li>
+        </a>
     )
 }
 
