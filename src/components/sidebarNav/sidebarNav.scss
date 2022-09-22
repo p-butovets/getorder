@@ -9,14 +9,22 @@
     }
     &-list {
         padding-top: 29px;
-    }
-    &-item {
         list-style: none;
+    }
+    &-link {
+        display: block;
+        text-decoration: none;
+        padding-bottom: 30px;
         font-weight: 500;
         font-size: $product-name-fz;
         line-height: 20px;
         color: #000000;
-        padding-bottom: 30px;
-        text-decoration: none;
+        transition: all 0.1s;
+        &_active {
+            font-weight: 800;
+        }
+        :hover {
+            font-weight: 800;
+        }
     }
 }
