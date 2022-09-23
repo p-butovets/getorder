@@ -2,7 +2,7 @@
 
 .product {
     color: $text-color;
-    width: 42%;
+    width: 50%;
     padding: 16px;
     cursor: pointer;
     &__view {
@@ -36,6 +36,7 @@
         align-items: center;
         padding-top: 11px;
         padding-bottom: 21px;
+        border-bottom: 1px solid #F0F0F0;
     }
     &-pop {
         display: flex;
