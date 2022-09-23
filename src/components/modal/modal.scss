@@ -1,0 +1,51 @@
+@import "../../style/variables.scss";
+
+.modal {
+    padding: 18px 50px;
+    background-color: #fff;
+    position: fixed;
+    bottom: -100%;
+    left: 50%;
+    height: 55%;
+    width: 56%;
+    min-width: 767.98px;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    transition: $transition;
+    border-radius: 20px;
+    &_active {
+        bottom: 0;
+    }
+    &__close {
+        cursor: pointer;
+        position: absolute;
+        top: 18px;
+        right: 22px;
+    }
+    &__overlay {
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: rgba(17, 17, 26, 0.1);
+        display: none;
+        z-index: 10;
+        opacity: 0;
+        animation: casper .5s forwards;
+        &_active {
+            display: block;
+        }
+    }
+}
+
+@keyframes casper {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

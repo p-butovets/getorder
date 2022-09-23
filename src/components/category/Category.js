@@ -36,7 +36,6 @@ const Category = (props) => {
     useEffect(() => {
         const div = categoryRef.current.getBoundingClientRect();
         setScrollTop(div.y)
-        console.log(window.innerWidth)
         if ((scrollTop > 0 && scrollTop < 348) && (window.innerWidth <= 767.98)) {
             setActiveCategory(categoryRef)
         }

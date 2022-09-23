@@ -1,15 +1,18 @@
 import { useState } from 'react';
+import Modal from '../modal/Modal';
 // import Modifier from '../modifier/Modifier';
-// import ProductFooter from '../productFooter/ProductFooter';
 import plus from "../../resourses/products/plus.svg";
 import './product.scss';
 
 
 const Product = (props) => {
 
-    const { name, id, isNew, setConfirmerVisibility, img, attributes_groups } = props;
+    const { name, id, setConfirmerVisibility, img, attributes_groups } = props;
     const price = `${props.price} ₴`;
-    const description = props.description ? props.description.slice(0, 90) : `Це ${props.name.toLowerCase()}, нічого більше ми про це не знаємо`
+    const description = props.description
+        ? props.description.slice(0, 90)
+        : `Це ${props.name.toLowerCase()}, нічого більше ми про це не знаємо`
+    const [modalActive, setModalActive] = useState(false);
 
 
     // const modifiers = attributes_groups.map(attribute => {
@@ -23,36 +26,33 @@ const Product = (props) => {
     // })
 
     return (
-        <div className={`product`}>
+        <>
+            <div
+                className="product"
+                onClick={() => setModalActive(true)}
+            >
 
-            <div className="product__view">
-                <div className="product__info">
-                    <div className="product__name">{name}</div>
-                    <div className="product__description">{description}</div>
+                <div className="product__view">
+                    <div className="product__info">
+                        <div className="product__name">{name}</div>
+                        <div className="product__description">{description}</div>
+                    </div>
+                    <img src={img} alt={name} className="product__img" />
                 </div>
-                <img src={img} alt={name} className="product__img" />
+
+                <div className="product__func">
+                    <div className="product__price">{price}</div>
+                    <img src={plus} alt="add" />
+                </div>
+                {/* {modifiers} */}
             </div>
-
-            <div className="product__func">
-                <div className="product__price">{price}</div>
-                <img src={plus} alt="add" />
-            </div>
-
-
-            {/* {modifiers} */}
-
-            {/* <ProductFooter
-                isExpanded={isExpanded}
-                setConfirmerVisibility={setConfirmerVisibility}
-                onProductAdd={onProductAdd}
-                id={id}
-                name={name}
-                //цену берем из пропсов, да. Потому что нужен без знака грн
-                price={props.price}
-                img={img}
-            /> */}
-
-        </div>
+            <Modal active={modalActive} setActive={setModalActive}>
+                <div className="product-pop">
+                    <div className="product-pop__info">{name}</div>
+                    <div className="product-pop__mods">{description}</div>
+                </div>
+            </Modal>
+        </>
     )
 }
 
