@@ -1,0 +1,21 @@
+@import '../../style/variables.scss';
+
+.qtyCounter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 17px;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 18px;
+    color: $text-color;
+    &-num {
+        font-weight: 800;
+        font-size: 14px;
+        line-height: 18px;
+        color: $text-color;
+        border: none;
+        width: 2rem;
+        text-align: center;
+    }
+}

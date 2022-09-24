@@ -2,10 +2,12 @@ import './button.scss';
 
 const Button = (props) => {
 
-    const { className } = props;
+    const { className, setModalActive } = props;
 
     return (
-        <div className={`button ${className}`}>
+        <div
+            onClick={() => setModalActive(false)}
+            className={`button ${className}`}>
             {props.children}
         </div>
     )
