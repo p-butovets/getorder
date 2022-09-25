@@ -7,6 +7,22 @@ const Modal = (props) => {
 
     return (
         <>
+            {active ?
+                <View
+                    active={active}
+                    children={children}
+                    setActive={setActive}
+                /> : null}
+        </>
+    )
+}
+
+const View = (props) => {
+
+    const { active, setActive, children } = props;
+
+    return (
+        <>
             <div className={`modal__overlay ${active ? "modal__overlay_active" : ""}`}></div>
             <div className={`modal ${active ? "modal_active" : ""}`}>
                 {children}

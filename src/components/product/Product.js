@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Modal from '../modal/Modal';
 import QtyCounter from '../qtyCounter/QtyCounter';
 import Button from '../button/Button';
@@ -60,7 +61,9 @@ const Product = (props) => {
                             <QtyCounter />
                         </div>
                         <div className="product-pop__button">
-                            <Button setModalActive={setModalActive}>
+                            <Button
+                                key={uuidv4()}
+                                setModalActive={setModalActive}>
                                 <div>додати за {price}</div>
                             </Button>
                         </div>
@@ -84,16 +87,16 @@ const Product = (props) => {
                     <div className="product-mob__description">{description}</div>
                     {modifiers}
                     <div className="product-mob__counter">
-                        <QtyCounter />
+                        <QtyCounter key={uuidv4()} />
                     </div>
                     <div className="product-mob__button">
-                        <Button setModalActive={setModalActive}>
+                        <Button
+                            key={uuidv4()}
+                            setModalActive={setModalActive}>
                             <div>додати за {price}</div>
                         </Button>
                     </div>
                 </div>
-
-
             </Modal>
         </>
     )

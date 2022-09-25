@@ -17,6 +17,9 @@
     border-radius: 20px;
     &_active {
         top: 50%;
+        //animation
+        animation: slideUp .3s;
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
     }
     &__close {
         cursor: pointer;
@@ -47,6 +50,16 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        top: 200%;
+    }
+
+    to {
+        top: 50%;
     }
 }
 
