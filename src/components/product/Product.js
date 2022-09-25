@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Modal from '../modal/Modal';
 import QtyCounter from '../qtyCounter/QtyCounter';
 import Button from '../button/Button';
-// import Modifier from '../modifier/Modifier';
+import Modifier from '../modifier/Modifier';
 import plus from "../../resourses/products/plus.svg";
 import './product.scss';
 
@@ -17,15 +17,14 @@ const Product = (props) => {
     const [modalActive, setModalActive] = useState(false);
 
 
-    // const modifiers = attributes_groups.map(attribute => {
-    //     return (
-    //         <Modifier
-    //             key={attribute.id}
-    //             attribute={attribute}
-    //             isExpanded={isExpanded}
-    //             isOnLeft={false}
-    //         />)
-    // })
+    const modifiers = attributes_groups.map(attribute => {
+        return (
+            <Modifier
+                key={attribute.id}
+                attribute={attribute}
+                isOnLeft={false}
+            />)
+    })
 
     return (
         <>
@@ -46,8 +45,8 @@ const Product = (props) => {
                     <div className="product__price">{price}</div>
                     <img src={plus} alt="add" />
                 </div>
-                {/* {modifiers} */}
             </div>
+
             <Modal active={modalActive} setActive={setModalActive}>
                 <div className="product-pop">
                     <div className="product-pop__info">
@@ -66,8 +65,35 @@ const Product = (props) => {
                             </Button>
                         </div>
                     </div>
-                    <div className="product-pop__mods">{description}</div>
+                    <div className="product-pop__mods">
+                        {(attributes_groups.length > 0)
+                            ? modifiers
+                            :
+                            <div className="product-pop__heading">
+                                У цього товару немає додаткових опцій
+                            </div>}
+                    </div>
                 </div>
+
+                <div className="product-mob">
+                    <img src={img} alt={name} className="product-mob__img" />
+                    <div className="product-mob__heading">
+                        <div className="product-mob__name">{name}</div>
+                        <div className="product-mob__price">{price}</div>
+                    </div>
+                    <div className="product-mob__description">{description}</div>
+                    {modifiers}
+                    <div className="product-mob__counter">
+                        <QtyCounter />
+                    </div>
+                    <div className="product-mob__button">
+                        <Button setModalActive={setModalActive}>
+                            <div>додати за {price}</div>
+                        </Button>
+                    </div>
+                </div>
+
+
             </Modal>
         </>
     )
