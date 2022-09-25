@@ -19,10 +19,8 @@ const Menu = (props) => {
 
     //при нажатии "назад" удалаем все рефы категорий
     useEffect(() => {
-        console.log('menu mount')
         return () => {
             setCategoryRefs([])
-            console.log('menu unmount')
         };
     },
         // eslint-disable-next-line
