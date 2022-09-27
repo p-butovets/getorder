@@ -1,1 +1,7 @@
 @import '../../style/variables.scss';
+
+@media (max-width: 991.98px) {
+    .sidebar-right {
+        display: none;
+    }
+}
