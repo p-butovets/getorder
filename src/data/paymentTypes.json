@@ -1,0 +1,33 @@
+{
+    "id": 2,
+    "min": 0,
+    "max": 1,
+    "is_required": false,
+    "name": "Тип оплати",
+    "items": [
+        {
+            "id": 44,
+            "name": "Готівкою",
+            "selected_by_default": true,
+            "available": true,
+            "is_active": false,
+            "price_impact": "0"
+        },
+        {
+            "id": 55,
+            "name": "Термінал",
+            "selected_by_default": false,
+            "available": true,
+            "is_active": false,
+            "price_impact": "0"
+        },
+        {
+            "id": 66,
+            "name": "Онлайн",
+            "selected_by_default": false,
+            "available": true,
+            "is_active": false,
+            "price_impact": "0"
+        }
+    ]
+}

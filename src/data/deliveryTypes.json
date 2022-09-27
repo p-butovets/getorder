@@ -1,0 +1,33 @@
+{
+    "id": 1,
+    "min": 0,
+    "max": 1,
+    "is_required": false,
+    "name": "Тип замовлення",
+    "items": [
+        {
+            "id": 11,
+            "name": "Доставка кур'єром",
+            "selected_by_default": true,
+            "available": true,
+            "is_active": false,
+            "price_impact": "40"
+        },
+        {
+            "id": 22,
+            "name": "Заберу сам",
+            "selected_by_default": false,
+            "available": true,
+            "is_active": false,
+            "price_impact": "0"
+        },
+        {
+            "id": 33,
+            "name": "Замовлення в закладі",
+            "selected_by_default": false,
+            "available": true,
+            "is_active": false,
+            "price_impact": "0"
+        }
+    ]
+}
