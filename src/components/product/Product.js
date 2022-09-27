@@ -63,7 +63,9 @@ const Product = (props) => {
                         <div className="product-pop__button">
                             <Button
                                 key={uuidv4()}
-                                setModalActive={setModalActive}>
+                                setModalActive={setModalActive}
+                                modalActive={modalActive}
+                            >
                                 <div>додати за {price}</div>
                             </Button>
                         </div>
@@ -92,7 +94,9 @@ const Product = (props) => {
                     <div className="product-mob__button">
                         <Button
                             key={uuidv4()}
-                            setModalActive={setModalActive}>
+                            setModalActive={setModalActive}
+                            modalActive={modalActive}
+                        >
                             <div>додати за {price}</div>
                         </Button>
                     </div>
