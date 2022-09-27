@@ -149,8 +149,8 @@ const Cart = () => {
                                     <div className="total-item__price">405 ₴</div>
                                 </div>
                             </div>
-                            <button className="confirm" type="submit">
-                                <div className="confirm-button">
+                            <button className="cart-confirm" type="submit">
+                                <div className="cart-confirm-button">
                                     <div className="button-text">замовити 4 позиції</div>
                                     <div className="rocket-icon">
                                         <img src={rocket} alt="rocket" />

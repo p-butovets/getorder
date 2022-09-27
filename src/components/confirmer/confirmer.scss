@@ -1,0 +1,57 @@
+@import '../../style/variables.scss';
+
+.confirm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 12px;
+    left: 0;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 18px;
+    transition: $transition;
+
+    &_hidden {
+        bottom: -90px;
+    }
+
+    &-button {
+        display: grid;
+        grid-auto-columns: 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+            "button-text button-text button-text button-text rocket-icon .";
+
+        background-color: $main-color;
+        width: 338px;
+        height: 51px;
+        border-radius: 30px;
+        box-shadow: $shadow;
+        cursor: pointer;
+    }
+}
+
+.button-text {
+    grid-area: button-text;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.rocket-icon {
+    grid-area: rocket-icon;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+@media (min-width: 767.98px) {
+    .confirm {
+        display: none;
+    }
+}

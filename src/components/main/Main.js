@@ -12,6 +12,7 @@ import SellPointHeading from '../sellPointHeading/SellPointHeading';
 import SidebarNav from "../sidebarNav/SidebarNav";
 import Menu from "../menu/Menu";
 import Cart from "../cart/Cart";
+import Confirmer from "../confirmer/Confirmer";
 import './main.scss';
 
 //как-будто запросы на бекенд
@@ -118,6 +119,9 @@ const Main = () => {
                                     categoryRefs={categoryRefs}
                                     setCategoryRefs={setCategoryRefs}
                                     addRefToRefs={addRefToRefs}
+                                />
+                                <Confirmer
+                                    confirmerVisibility={confirmerVisibility}
                                 />
                             </MainContent>
                             <SidebarRight>
