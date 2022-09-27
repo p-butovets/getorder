@@ -3,11 +3,11 @@
 
 import { useState, useEffect } from "react";
 import { useFormik } from 'formik';
-import { v4 as uuidv4 } from 'uuid';
 import Modifier from '../modifier/Modifier';
 import CartItem from '../cartItem/CartItem';
 import Button from '../button/Button';
 import Modal from "../modal/Modal";
+import Total from '../total/Total';
 import rocket from '../../resourses/topbar/rocket-icon.svg';
 import './cart.scss';
 //псевдозапрос на получение доступных типов доставки ресторана
@@ -15,7 +15,9 @@ import deliveryTypes from '../../data/deliveryTypes.json';
 //псевдозапрос на получение доступных типов доставки ресторана
 import paymentTypes from '../../data/paymentTypes.json';
 
-const Cart = () => {
+const Cart = (props) => {
+
+    const setConfirmerVisibility = props.setConfirmerVisibility;
 
     const [modalActive, setModalActive] = useState(false);
 
@@ -59,16 +61,21 @@ const Cart = () => {
             <div className="cart" style={positionStyle}>
                 <div className="nav-title">Ваше замовлення</div>
                 <div className="cart-items">
-                    <CartItem />
-                    <CartItem />
-                    <CartItem />
+                    <CartItem productId={"cbc70c7e-5fa4-4edc-c01d-08d95c238f00"} />
+                    <CartItem productId={"cbc70c7e-5fa4-4edc-c01d-08d95c238f00"} />
+                    <CartItem productId={"cbc70c7e-5fa4-4edc-c01d-08d95c238f00"} />
                 </div>
-                <Button className={'button_wide'} setModalActive={setModalActive} modalActive={modalActive}>
+                <Button
+                    className={'button_wide'}
+                    setModalActive={setModalActive}
+                    modalActive={modalActive}
+                    setConfirmerVisibility={setConfirmerVisibility}
+                >
                     замовити 4 позиції
                 </Button>
             </div>
 
-            <Modal active={modalActive} setActive={setModalActive}>
+            <Modal modalActive={modalActive} setModalActive={setModalActive}>
                 <form className="form" onSubmit={formik.handleSubmit}>
                     <div className="checkout-pop">
                         <div className="checkout-pop__left">
@@ -135,20 +142,7 @@ const Cart = () => {
                                 placeholder='Коментар до замовлення'
                                 value={formik.values.comment}
                                 onChange={formik.handleChange} />
-                            <div className="total">
-                                <div className="total-item">
-                                    <div className="total-item__title">Доставка</div>
-                                    <div className="total-item__price">40 ₴</div>
-                                </div>
-                                <div className="total-item">
-                                    <div className="total-item__title">Сума замовлення</div>
-                                    <div className="total-item__price">365 ₴</div>
-                                </div>
-                                <div className="total-item">
-                                    <div className="total-item__title">Загалом</div>
-                                    <div className="total-item__price">405 ₴</div>
-                                </div>
-                            </div>
+                            <Total />
                             <button className="cart-confirm" type="submit">
                                 <div className="cart-confirm-button">
                                     <div className="button-text">замовити 4 позиції</div>

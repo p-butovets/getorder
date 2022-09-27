@@ -13,6 +13,7 @@ import SidebarNav from "../sidebarNav/SidebarNav";
 import Menu from "../menu/Menu";
 import Cart from "../cart/Cart";
 import Confirmer from "../confirmer/Confirmer";
+import Checkout from "../checkout/Checkout";
 import './main.scss';
 
 //как-будто запросы на бекенд
@@ -125,10 +126,11 @@ const Main = () => {
                                 />
                             </MainContent>
                             <SidebarRight>
-                                <Cart />
+                                <Cart setConfirmerVisibility={setConfirmerVisibility} />
                             </SidebarRight>
                         </>
                     } />
+                    <Route path='/checkout' element={<Checkout />} />
                 </Routes>
             </BrowserRouter>
         </section>

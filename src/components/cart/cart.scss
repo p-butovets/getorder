@@ -7,6 +7,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        max-width: 209px;
     }
 }
 
@@ -58,20 +59,6 @@
 
     input#email {
         margin-bottom: 23px;
-    }
-}
-
-.total {
-    color: $text-color;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 20px;
-    width: 100%;
-    padding-top: 16px;
-    &-item {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
     }
 }
 
