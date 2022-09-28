@@ -33,7 +33,9 @@ const Header = (props) => {
                     onClick={() => setSlided(!slided)}
                     className='menu-button' src={menuButton} alt="menu button" />
                 <Logo />
-                <LangToggler />
+                <div className="mob_toggler">
+                    <LangToggler />
+                </div>
             </header>
 
         </>
