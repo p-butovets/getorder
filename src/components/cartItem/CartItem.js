@@ -57,24 +57,24 @@ const View = (props) => {
 
     return (
         <div className="cart-item">
-            <div class="cart-item__counter">1 x</div>
-            <div class="cart-item__name">{product.name}</div>
-            <div class="cart-item__price">{price}</div>
-            <div class="cart-item__empty"></div>
-            <div class="cart-item__empt"></div>
-            <div class="cart-item__mods">
+            <div className="cart-item__counter">1 x</div>
+            <div className="cart-item__name">{product.name}</div>
+            <div className="cart-item__price">{price}</div>
+            <div className="cart-item__empty"></div>
+            <div className="cart-item__empt"></div>
+            <div className="cart-item__mods">
                 <div className="cart-item__mod">Сирний</div>
                 <div className="cart-item__mod">BBQ</div>
             </div>
-            <div class="cart-item__minus">
+            <div className="cart-item__minus">
                 <img src={minus} alt="minus" className="minus" />
             </div>
-            <div class="cart-item__plus">
+            <div className="cart-item__plus">
                 <img src={plus} alt="plus" className="plus" />
             </div>
             <div
                 onClick={() => setModalActive(!modalActive)}
-                class="cart-item__changer">
+                className="cart-item__changer">
                 Змінити
             </div>
             <Modal
