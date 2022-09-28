@@ -15,6 +15,7 @@ const Menu = (props) => {
         orderRestaurant,
         setCategoryRefs,
         setOrderRestaurant,
+        showTopBar
     } = props;
 
     //при нажатии "назад" удалаем все рефы категорий
@@ -50,6 +51,7 @@ const Menu = (props) => {
                 orderRestaurant={orderRestaurant}
                 setOrderRestaurant={setOrderRestaurant}
                 setCategoryRefs={setCategoryRefs}
+                showTopBar={showTopBar}
             />
         </>
     )
