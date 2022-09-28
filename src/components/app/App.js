@@ -16,19 +16,30 @@ function App() {
 	//чтобы закрепить сайдбары при прокрутке
 	const [pinBars, setPinBars] = useState(false);
 
+	//чтобы показать topbar
+	const [showTopBar, setShowTopbar] = useState(false);
+
 	//слушаем скролл
+	//при прокрутке на 300 закреполяем меню, корзину и показіваем topbar
 	const handleScroll = e => {
-		console.log(e.currentTarget.scrollTop)
 		if (e.currentTarget.scrollTop >= 300) {
 			setPinBars(true)
+			setShowTopbar(true)
 		} else {
 			setPinBars(false)
+			setShowTopbar(false)
 		}
 	};
 
 	return (
 		<BrowserRouter>
-			<div className="container" onScroll={handleScroll}>
+			<div
+				className="container"
+				onScroll={handleScroll}
+				style={slided ?
+					{ overflowY: "hidden" }
+					:
+					null}>
 				<SiteMenu
 					setSlided={setSlided}
 				/>
@@ -40,6 +51,7 @@ function App() {
 					<MainSlider />
 					<Main
 						pinBars={pinBars}
+						showTopBar={showTopBar}
 					/>
 					<Footer />
 				</div>

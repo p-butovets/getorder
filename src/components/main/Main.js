@@ -22,6 +22,8 @@ import menu from '../../data/menu.json';
 
 const Main = (props) => {
 
+    const { showTopBar, pinBars } = props;
+
     //доставка, самовывоз или "в закладі"
     const [orderType, setOrderType] = useState();
 
@@ -106,7 +108,7 @@ const Main = (props) => {
                     <>
                         <SidebarLeft>
                             <SidebarNav
-                                pinBars={props.pinBars}
+                                pinBars={pinBars}
                                 menu={menu} />
                         </SidebarLeft>
                         <MainContent>
@@ -121,6 +123,7 @@ const Main = (props) => {
                                 categoryRefs={categoryRefs}
                                 setCategoryRefs={setCategoryRefs}
                                 addRefToRefs={addRefToRefs}
+                                showTopBar={showTopBar}
                             />
                             <Confirmer
                                 confirmerVisibility={confirmerVisibility}
@@ -128,7 +131,7 @@ const Main = (props) => {
                         </MainContent>
                         <SidebarRight>
                             <Cart
-                                pinBars={props.pinBars}
+                                pinBars={pinBars}
                                 setConfirmerVisibility={setConfirmerVisibility} />
                         </SidebarRight>
                     </>

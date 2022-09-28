@@ -33,7 +33,7 @@
         position: fixed;
         top: 0;
         right: 0;
-        background-color: rgba(17, 17, 26, 0.1);
+        background-color: rgba(17, 17, 26, 0.7);
         display: none;
         z-index: 11;
         opacity: 0;
@@ -48,7 +48,7 @@
     .modal {
         min-width: 0;
         width: 100%;
-        height: 74vh;
+        height: 92vh;
         padding: 18px 29px;
         //animation
         animation: slideUpMob .3s;
@@ -67,7 +67,7 @@
         }
 
         &_active {
-            top:63%;
+            top:55%;
             border-radius: 20px 20px 0 0;
         }
     }

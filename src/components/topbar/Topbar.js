@@ -11,7 +11,7 @@ import restaurants from '../../data/restaurants.json';
 
 const Topbar = (props) => {
 
-    const { menu, orderRestaurant, setOrderRestaurant, categoryRefs, setCategoryRefs, activeCategory } = props;
+    const { menu, orderRestaurant, setOrderRestaurant, categoryRefs, setCategoryRefs, activeCategory, showTopBar } = props;
 
     let navigate = useNavigate();
     const [restaurantName, setRestaurantName] = useState(null)
@@ -27,16 +27,12 @@ const Topbar = (props) => {
     }, [orderRestaurant])
 
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-    }, []);
-
-    //на 400рх от верха - показываем или скрываем топбар
-    const handleScroll = () => {
-        return window.scrollY >= 400 ?
+        showTopBar ?
             setToggler("topbar topbar_visible")
             :
             setToggler("topbar")
-    };
+    }, [showTopBar]);
+
 
     return (
         <div className={toggler}>
