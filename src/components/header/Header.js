@@ -8,10 +8,14 @@ import './header.scss';
 
 const Header = (props) => {
 
+    const { slided, setSlided } = props;
+
     return (
         <>
             <header className='header'>
-                <img className='menu-button' src={menuButton} alt="menu button" />
+                <img
+                    onClick={() => setSlided(!slided)}
+                    className='menu-button' src={menuButton} alt="menu button" />
 
                 <div className="header-content">
                     <Logo />
@@ -25,7 +29,9 @@ const Header = (props) => {
             </header>
 
             <header className='header_mob'>
-                <img className='menu-button' src={menuButton} alt="menu button" />
+                <img
+                    onClick={() => setSlided(!slided)}
+                    className='menu-button' src={menuButton} alt="menu button" />
                 <Logo />
                 <LangToggler />
             </header>
