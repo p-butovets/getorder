@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 import './confirmer.scss';
 import rocket from '../../resourses/topbar/rocket-icon.svg';
 

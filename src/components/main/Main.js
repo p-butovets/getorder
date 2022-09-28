@@ -25,6 +25,7 @@ const Main = (props) => {
     const { showTopBar, pinBars } = props;
 
     //доставка, самовывоз или "в закладі"
+    // eslint-disable-next-line
     const [orderType, setOrderType] = useState();
 
     // Храним выбраный клиентом ресторан заказа, айди устанавливаем в компоненте "restaurants"

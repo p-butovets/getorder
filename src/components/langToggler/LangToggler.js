@@ -1,8 +1,5 @@
-import { useState, useEffect } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-
-import caretDown from '../../resourses/header/caret_down.svg';
 import './langToggler.scss';
 
 const LangToggler = () => {

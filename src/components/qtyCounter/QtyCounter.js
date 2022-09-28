@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import plus from '../../resourses/icons/plus.svg';
 import minus from '../../resourses/icons/minus.svg';
