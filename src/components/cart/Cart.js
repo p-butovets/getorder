@@ -1,7 +1,7 @@
 /*Блок корзины, видимы на десктопе, кнопка блока открывает модалку,
 в котрую как children передаем форму чекаута (НЕ страницу /checkout) */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useFormik } from 'formik';
 import Modifier from '../modifier/Modifier';
 import CartItem from '../cartItem/CartItem';
@@ -17,20 +17,15 @@ import paymentTypes from '../../data/paymentTypes.json';
 
 const Cart = (props) => {
 
-    const setConfirmerVisibility = props.setConfirmerVisibility;
+    const { setConfirmerVisibility, pinBars } = props;
 
     const [modalActive, setModalActive] = useState(false);
 
     //для закрепления блока при скролле
     const [positionStyle, setPositionStyle] = useState({ position: "static" });
-    // слушаем скролл
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-    }, []);
 
-    //на 300рх от верха - ставим positon fixed
-    const handleScroll = () => {
-        return window.scrollY >= 300 ?
+    useEffect(() => {
+        pinBars ?
             setPositionStyle({
                 position: "fixed",
                 top: "10px",
@@ -39,7 +34,8 @@ const Cart = (props) => {
             })
             :
             setPositionStyle({ position: "static" })
-    };
+    }, [pinBars]);
+
 
     const formik = useFormik({
         initialValues: {

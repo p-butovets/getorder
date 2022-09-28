@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter } from "react-router-dom";
 import Header from '../header/Header';
 import MainSlider from '../mainSlider/MainSlider';
@@ -10,11 +10,25 @@ import './app.scss';
 
 function App() {
 
+	//открытие меню
 	const [slided, setSlided] = useState(false);
+
+	//чтобы закрепить сайдбары при прокрутке
+	const [pinBars, setPinBars] = useState(false);
+
+	//слушаем скролл
+	const handleScroll = e => {
+		console.log(e.currentTarget.scrollTop)
+		if (e.currentTarget.scrollTop >= 300) {
+			setPinBars(true)
+		} else {
+			setPinBars(false)
+		}
+	};
 
 	return (
 		<BrowserRouter>
-			<div className="container">
+			<div className="container" onScroll={handleScroll}>
 				<SiteMenu
 					setSlided={setSlided}
 				/>
@@ -24,7 +38,9 @@ function App() {
 						setSlided={setSlided}
 					/>
 					<MainSlider />
-					<Main />
+					<Main
+						pinBars={pinBars}
+					/>
 					<Footer />
 				</div>
 			</div>
