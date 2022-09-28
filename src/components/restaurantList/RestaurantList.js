@@ -24,10 +24,8 @@ const RestaurantList = (props) => {
     })
 
     return (
-        <div className="container">
-            <div className="restaurant-list">
-                {pointsList}
-            </div>
+        <div className="restaurant-list">
+            {pointsList}
         </div>
     )
 }
