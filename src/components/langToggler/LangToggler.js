@@ -1,12 +1,23 @@
-import './langToggler.scss';
+import { useState, useEffect } from 'react';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
 import caretDown from '../../resourses/header/caret_down.svg';
+import './langToggler.scss';
 
 const LangToggler = () => {
+
+    const options = [
+        'UA', 'UK', 'RU'
+    ];
+    const defaultOption = options[0];
+
     return (
-        <div className="lang-toggler">
-            <div className="lang-toggler-text">UK</div>
-            <img className="lang-toggler-caret" src={caretDown} alt="caret down" />
-        </div>
+        <Dropdown
+            options={options}
+            onChange={() => console.log(1)}
+            value={defaultOption}
+            className='lang-toggler' />
     )
 }
 
