@@ -22,7 +22,6 @@ const Category = (props) => {
         onScroll не работает в этом случае*/
         const timer = setInterval(() =>
             setOffsetTop(categoryRef.current.getBoundingClientRect().y), 100);
-        return clearInterval(timer)
     }, [])
 
     //2. когда категория оказывается на расстоянии 348 пикселей от верха экрана, назначаем ее активной,
