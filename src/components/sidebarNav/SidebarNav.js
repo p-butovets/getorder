@@ -3,7 +3,7 @@ import './sidebarNav.scss';
 
 const SidebarNav = (props) => {
 
-    const { menu } = props;
+    const { menu, pinBars } = props;
 
     //для установки активного элемента меню собираем рефы
     const [itemRefs, setItemRefs] = useState([])
@@ -21,18 +21,13 @@ const SidebarNav = (props) => {
 
     //для закрепления блока при скролле
     const [positionStyle, setPositionStyle] = useState({ position: "static" });
-    // слушаем скролл
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-    }, []);
 
-    //на 300рх от верха - ставим positon fixed
-    const handleScroll = () => {
-        return window.scrollY >= 300 ?
+    useEffect(() => {
+        pinBars ?
             setPositionStyle({ position: "fixed", top: "10px" })
             :
             setPositionStyle({ position: "static" })
-    };
+    }, [pinBars]);
 
     const items = menu.data.sections.map(item => {
         return (

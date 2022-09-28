@@ -20,7 +20,7 @@ import './main.scss';
 import restaurants from '../../data/restaurants.json';
 import menu from '../../data/menu.json';
 
-const Main = () => {
+const Main = (props) => {
 
     //доставка, самовывоз или "в закладі"
     const [orderType, setOrderType] = useState();
@@ -105,7 +105,9 @@ const Main = () => {
                 <Route path={orderRestaurantUrl} element={
                     <>
                         <SidebarLeft>
-                            <SidebarNav menu={menu} />
+                            <SidebarNav
+                                pinBars={props.pinBars}
+                                menu={menu} />
                         </SidebarLeft>
                         <MainContent>
                             <SellPointHeading orderRestaurant={orderRestaurant} />
@@ -125,7 +127,9 @@ const Main = () => {
                             />
                         </MainContent>
                         <SidebarRight>
-                            <Cart setConfirmerVisibility={setConfirmerVisibility} />
+                            <Cart
+                                pinBars={props.pinBars}
+                                setConfirmerVisibility={setConfirmerVisibility} />
                         </SidebarRight>
                     </>
                 } />
