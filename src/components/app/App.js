@@ -28,7 +28,13 @@ function App() {
 
 	return (
 		<BrowserRouter>
-			<div className="container" onScroll={handleScroll}>
+			<div
+				className="container"
+				onScroll={handleScroll}
+				style={slided ?
+					{ overflowY: "hidden" }
+					:
+					null}>
 				<SiteMenu
 					setSlided={setSlided}
 				/>
