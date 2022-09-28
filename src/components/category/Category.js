@@ -8,7 +8,9 @@ const Category = (props) => {
 
     const categoryRef = useRef(null);
 
+    //вот это не убирать, нигде не используется, но без него не работает
     const [scrollTop, setScrollTop] = useState(0);
+
     const [offsetTop, setOffsetTop] = useState(0);
 
     // 1. когда элемент срендерился
@@ -16,36 +18,25 @@ const Category = (props) => {
         //Добавляем реф категории в массив рефов 
         addRefToRefs(categoryRef)
 
-        //добавляем слушателль скролла
-        window.addEventListener("scroll", handleScroll);
-
-        //устанавливаем фактическое смещение категории (рефа)
-        setOffsetTop(categoryRef.current.offsetTop)
-        // eslint-disable-next-line
+        /* запускаем таймер с интревалом, по которому устанавливаем фактическое смещение категории (рефа)
+        onScroll не работает в этом случае*/
+        const timer = setInterval(() =>
+            setOffsetTop(categoryRef.current.getBoundingClientRect().y), 100);
+        return clearInterval(timer)
     }, [])
 
-
-    //2. когда проиходит скролл, устанавливаем фактическое смещение категории (рефа)
-    const handleScroll = () => {
-        setOffsetTop(window.scrollY)
-    };
-
-    //3. когда категория оказывается на расстоянии 348 пикселей от верха экрана, назначаем ее активной,
+    //2. когда категория оказывается на расстоянии 348 пикселей от верха экрана, назначаем ее активной,
     //   ее реф поднимаем выше
     // если клиент на десктопе, то активная категория не устанавливается
     useEffect(() => {
-        const div = categoryRef.current.getBoundingClientRect();
-        setScrollTop(div.y)
-        if ((scrollTop > 0 && scrollTop < 348) && (window.innerWidth <= 767.98)) {
+        if ((offsetTop > 0 && offsetTop < 348) && (window.innerWidth <= 767.98)) {
             setActiveCategory(categoryRef)
         }
         // eslint-disable-next-line
     }, [offsetTop])
 
 
-
     const productsList = products.map(product => {
-        //как получить этот атрибут isNew? чтобы отображать бейдж "новинка"
         const { uniq_id, name, description, image_url_png, price, isNew, attributes_groups } = product;
         return (
             <Product
@@ -64,7 +55,7 @@ const Category = (props) => {
 
     return (
         <>
-            <div className="category__name" ref={categoryRef} onScroll={handleScroll} id={id}>{categoryName}</div>
+            <div className="category__name" ref={categoryRef} id={id}>{categoryName}</div>
             <div className="category__products">
                 {productsList}
             </div>
