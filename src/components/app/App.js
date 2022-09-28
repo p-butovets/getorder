@@ -38,7 +38,9 @@ function App() {
 				<SiteMenu
 					setSlided={setSlided}
 				/>
-				<div className={`App ${slided ? "slided" : null}`}>
+				<div
+					onClick={() => setSlided(false)}
+					className={`App ${slided ? "slided" : null}`}>
 					<Header
 						slided={slided}
 						setSlided={setSlided}
