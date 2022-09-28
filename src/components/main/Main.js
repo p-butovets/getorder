@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import SidebarLeft from '../sidebarLeft/SidebarLeft';
 import SidebarRight from '../sidebarRight/SidebarRight';
@@ -75,64 +75,62 @@ const Main = () => {
 
     return (
         <section className='main'>
-            <BrowserRouter>
-                <Routes>
-                    <Route path='/' element={
-                        <>
-                            <SidebarLeft />
-                            <MainContent>
-                                <Heading description={"Що вас цікавить?"} />
-                                <OrderType setOrderType={setOrderType} />
-                            </MainContent>
-                            <SidebarRight>
-                                <Social class={'social'} />
-                            </SidebarRight>
-                        </>
-                    } />
+            <Routes>
+                <Route path='/' element={
+                    <>
+                        <SidebarLeft />
+                        <MainContent>
+                            <Heading description={"Що вас цікавить?"} />
+                            <OrderType setOrderType={setOrderType} />
+                        </MainContent>
+                        <SidebarRight>
+                            <Social class={'social'} />
+                        </SidebarRight>
+                    </>
+                } />
 
-                    <Route path='/restaurants' element={
-                        <>
-                            <SidebarLeft />
-                            <MainContent>
-                                <Heading description={"Виберіть ресторан:"} />
-                                <RestaurantList setOrderRestaurant={setOrderRestaurant} />
-                            </MainContent>
-                            <SidebarRight>
-                                <Social class={'social'} />
-                            </SidebarRight>
-                        </>
-                    } />
+                <Route path='/restaurants' element={
+                    <>
+                        <SidebarLeft />
+                        <MainContent>
+                            <Heading description={"Виберіть ресторан:"} />
+                            <RestaurantList setOrderRestaurant={setOrderRestaurant} />
+                        </MainContent>
+                        <SidebarRight>
+                            <Social class={'social'} />
+                        </SidebarRight>
+                    </>
+                } />
 
-                    <Route path={orderRestaurantUrl} element={
-                        <>
-                            <SidebarLeft>
-                                <SidebarNav menu={menu} />
-                            </SidebarLeft>
-                            <MainContent>
-                                <SellPointHeading orderRestaurant={orderRestaurant} />
-                                <Menu
-                                    menu={restaurantMenu}
-                                    setActiveCategory={setActiveCategory}
-                                    setConfirmerVisibility={setConfirmerVisibility}
-                                    activeCategory={activeCategory}
-                                    orderRestaurant={orderRestaurant}
-                                    setOrderRestaurant={setOrderRestaurant}
-                                    categoryRefs={categoryRefs}
-                                    setCategoryRefs={setCategoryRefs}
-                                    addRefToRefs={addRefToRefs}
-                                />
-                                <Confirmer
-                                    confirmerVisibility={confirmerVisibility}
-                                />
-                            </MainContent>
-                            <SidebarRight>
-                                <Cart setConfirmerVisibility={setConfirmerVisibility} />
-                            </SidebarRight>
-                        </>
-                    } />
-                    <Route path='/checkout' element={<Checkout />} />
-                </Routes>
-            </BrowserRouter>
+                <Route path={orderRestaurantUrl} element={
+                    <>
+                        <SidebarLeft>
+                            <SidebarNav menu={menu} />
+                        </SidebarLeft>
+                        <MainContent>
+                            <SellPointHeading orderRestaurant={orderRestaurant} />
+                            <Menu
+                                menu={restaurantMenu}
+                                setActiveCategory={setActiveCategory}
+                                setConfirmerVisibility={setConfirmerVisibility}
+                                activeCategory={activeCategory}
+                                orderRestaurant={orderRestaurant}
+                                setOrderRestaurant={setOrderRestaurant}
+                                categoryRefs={categoryRefs}
+                                setCategoryRefs={setCategoryRefs}
+                                addRefToRefs={addRefToRefs}
+                            />
+                            <Confirmer
+                                confirmerVisibility={confirmerVisibility}
+                            />
+                        </MainContent>
+                        <SidebarRight>
+                            <Cart setConfirmerVisibility={setConfirmerVisibility} />
+                        </SidebarRight>
+                    </>
+                } />
+                <Route path='/checkout' element={<Checkout />} />
+            </Routes>
         </section>
     )
 }
