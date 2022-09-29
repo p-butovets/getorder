@@ -1,7 +1,7 @@
 /*Блок корзины, видимы на десктопе, кнопка блока открывает модалку,
 в котрую как children передаем форму чекаута (НЕ страницу /checkout) */
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useFormik } from 'formik';
 import Modifier from '../modifier/Modifier';
 import CartItem from '../cartItem/CartItem';

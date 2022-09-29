@@ -3,7 +3,7 @@ import './modifier.scss';
 
 
 const Modifier = (props) => {
-    const { id, isRequired, items, min, max, name } = props.attribute;
+    const { id, items, max, name } = props.attribute;
 
     // собираем рефы элементов для реализации выбора "один из"
     // при выборе одного из этой группы у остальных снимаем класс _checked
@@ -47,7 +47,7 @@ const Modifier = (props) => {
 }
 
 const ModifierItem = (props) => {
-    const { available, id, is_active, name, price_impact, selected_by_default } = props.item;
+    const { available, id, name, price_impact, selected_by_default } = props.item;
     const addChecked = props.addChecked;
     const removeChecked = props.removeChecked;
     const addRef = props.addRef;
