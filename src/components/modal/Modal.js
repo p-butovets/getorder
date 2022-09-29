@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import ProductPop from '../productPop/ProductPop';
 import close from '../../resourses/icons/close.svg';
 import './modal.scss';
@@ -5,6 +6,20 @@ import './modal.scss';
 const Modal = (props) => {
 
     const { productId, modalActive, setModalActive, setConfirmerVisibility, buttonText, children } = props;
+
+    /*1. Чтобы при открытой модалке не скроллися под не контент
+    берем container */
+    const container = document.querySelector('.container')
+
+    /*2. меняем значение overflow-y у container в зависимости от 
+    открытой или закрытой модалки */
+    useEffect(() => {
+        if (modalActive) {
+            container.style.overflowY = 'hidden'
+        } else {
+            container.style.overflowY = 'auto'
+        }
+    }, [modalActive])
 
     /* рендерим компонент только если modalActive*/
     return (
