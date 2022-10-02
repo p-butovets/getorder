@@ -16,10 +16,6 @@ const Checkout = (props) => {
 
     const showTopBar = props.showTopBar;
 
-    useEffect(() => {
-        document.body.scrollTop = 0;
-    }, [])
-
     const formik = useFormik({
         initialValues: {
             name: '',
