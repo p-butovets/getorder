@@ -10,13 +10,26 @@ import './header.scss';
 const Header = (props) => {
 
     const { slided, setSlided } = props;
+    const [pathname, setPathname] = useState(null);
     const [visibility, setVisibility] = useState(true);
+
+
+    useEffect(() => {
+        /* запускаем таймер с интревалом, по которому устанавливаем текущий pathname*/
+        const timer = setInterval(() =>
+            setPathname(window.location.pathname), 100)
+        //отключаем таймер если unmount
+        return () => clearInterval(timer)
+    }, [])
 
     //не показываем header на странице checkout
     useEffect(() => {
-        if (window.location.pathname === '/checkout')
+        if (pathname === '/checkout') {
             setVisibility(false)
-    }, [])
+        } else {
+            setVisibility(true)
+        }
+    }, [pathname])
 
     return (
         <>

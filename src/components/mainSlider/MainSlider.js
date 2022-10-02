@@ -9,13 +9,25 @@ import './mainSlider.scss';
 
 const MainSlider = () => {
 
+    const [pathname, setPathname] = useState(null);
     const [visibility, setVisibility] = useState(true);
+
+    useEffect(() => {
+        /* запускаем таймер с интревалом, по которому устанавливаем текущий pathname*/
+        const timer = setInterval(() =>
+            setPathname(window.location.pathname), 100)
+        //отключаем таймер если unmount
+        return () => clearInterval(timer)
+    }, [])
 
     //не показываем slider на странице checkout
     useEffect(() => {
-        if (window.location.pathname === '/checkout')
+        if (pathname === '/checkout') {
             setVisibility(false)
-    }, [])
+        } else {
+            setVisibility(true)
+        }
+    }, [pathname])
 
     return (
         <section style={visibility ? null : { display: 'none' }}>
