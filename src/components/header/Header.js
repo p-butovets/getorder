@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import LangToggler from '../langToggler/LangToggler';
 import Logo from '../logo/Logo';
 import pin from '../../resourses/header/pin.svg'
@@ -9,10 +10,30 @@ import './header.scss';
 const Header = (props) => {
 
     const { slided, setSlided } = props;
+    const [pathname, setPathname] = useState(null);
+    const [visibility, setVisibility] = useState(true);
+
+
+    useEffect(() => {
+        /* запускаем таймер с интревалом, по которому устанавливаем текущий pathname*/
+        const timer = setInterval(() =>
+            setPathname(window.location.pathname), 100)
+        //отключаем таймер если unmount
+        return () => clearInterval(timer)
+    }, [])
+
+    //не показываем header на странице checkout
+    useEffect(() => {
+        if (pathname === '/checkout') {
+            setVisibility(false)
+        } else {
+            setVisibility(true)
+        }
+    }, [pathname])
 
     return (
         <>
-            <header className='header'>
+            <header className='header' style={visibility ? null : { display: 'none' }}>
                 <img
                     onClick={() => setSlided(!slided)}
                     className='menu-button' src={menuButton} alt="menu button" />
@@ -28,7 +49,7 @@ const Header = (props) => {
                 </div>
             </header>
 
-            <header className='header_mob'>
+            <header className='header_mob' style={visibility ? null : { display: 'none' }}>
                 <img
                     onClick={() => setSlided(!slided)}
                     className='menu-button' src={menuButton} alt="menu button" />

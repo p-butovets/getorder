@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import fb from '../../resourses/social/facebook.svg';
 import vk from '../../resourses/social/vk.svg';
 import insta from '../../resourses/social/instagram.svg';
@@ -6,10 +7,30 @@ import './social.scss';
 
 const Social = (props) => {
 
+    const [pathname, setPathname] = useState(null);
+    const [visibility, setVisibility] = useState(true);
+
+    useEffect(() => {
+        /* запускаем таймер с интревалом, по которому устанавливаем текущий pathname*/
+        const timer = setInterval(() =>
+            setPathname(window.location.pathname), 100)
+        //отключаем таймер если unmount
+        return () => clearInterval(timer)
+    }, [])
+
+    //не показываем social на странице checkout
+    useEffect(() => {
+        if (pathname === '/checkout') {
+            setVisibility(false)
+        } else {
+            setVisibility(true)
+        }
+    }, [pathname])
+
     const clazz = props.class;
 
     return (
-        <div className={clazz}>
+        <div className={clazz} style={visibility ? null : { display: 'none' }}>
             <div className="social-title">Приеднуйтесь</div>
             <div className="social-icons">
                 <a href="#fb"><img src={fb} alt="fb" /></a>

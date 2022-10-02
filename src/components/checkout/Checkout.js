@@ -14,6 +14,12 @@ import './checkout.scss';
 
 const Checkout = (props) => {
 
+    const showTopBar = props.showTopBar;
+
+    useEffect(() => {
+        document.body.scrollTop = 0;
+    }, [])
+
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -30,7 +36,7 @@ const Checkout = (props) => {
 
     return (
         <>
-            <Top />
+            <Top showTopBar={showTopBar} />
             <div className="checkout__section">
                 <div className="checkout__section-title">Ваше замовлення</div>
                 <CartItem productId={"cbc70c7e-5fa4-4edc-c01d-08d95c238f00"} />
@@ -110,23 +116,21 @@ const Checkout = (props) => {
     )
 }
 
-const Top = () => {
+const Top = (props) => {
+
+    const showTopBar = props.showTopBar;
 
     const [topClassName, setTopClassName] = useState("checkout__top");
 
     const navigate = useNavigate();
 
+    //показываем или скрываем топбар
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-    }, []);
-
-    //на 50рх от верха - показываем или скрываем топбар
-    const handleScroll = () => {
-        return window.scrollY >= 50 ?
+        showTopBar ?
             setTopClassName("checkout__top checkout__top_visible")
             :
             setTopClassName("checkout__top")
-    };
+    }, [showTopBar]);
 
     return (
         <div

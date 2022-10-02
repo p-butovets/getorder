@@ -137,7 +137,7 @@ const Main = (props) => {
                         </SidebarRight>
                     </>
                 } />
-                <Route path='/checkout' element={<Checkout />} />
+                <Route path='/checkout' element={<Checkout showTopBar={showTopBar} />} />
             </Routes>
         </section>
     )
