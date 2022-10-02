@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import fb from '../../resourses/social/facebook.svg';
 import vk from '../../resourses/social/vk.svg';
 import insta from '../../resourses/social/instagram.svg';
@@ -6,10 +7,18 @@ import './social.scss';
 
 const Social = (props) => {
 
+    const [visibility, setVisibility] = useState(true);
+
+    //не показываем на странице checkout
+    useEffect(() => {
+        if (window.location.pathname === '/checkout')
+            setVisibility(false)
+    }, [])
+
     const clazz = props.class;
 
     return (
-        <div className={clazz}>
+        <div className={clazz} style={visibility ? null : { display: 'none' }}>
             <div className="social-title">Приеднуйтесь</div>
             <div className="social-icons">
                 <a href="#fb"><img src={fb} alt="fb" /></a>
