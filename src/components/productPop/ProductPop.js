@@ -112,6 +112,7 @@ const View = (props) => {
                 <div className="product-mob__counter">
                     <QtyCounter key={uuidv4()} />
                 </div>
+                <div className="product-mob__whitespace"></div>
                 <div className="product-mob__button">
                     <Button
                         key={uuidv4()}
