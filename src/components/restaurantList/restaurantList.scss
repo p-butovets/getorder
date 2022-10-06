@@ -12,9 +12,10 @@
 
     &-item {
         display: flex;
+        height: 84px;
         justify-content: flex-start;
         align-items: center;
-        gap: 11px;
+        gap: 35px;
         background: $background-color;
         border: 1px solid #F1F0F0;
         border-radius: 14px;
@@ -37,14 +38,21 @@
     &-img {
         border-radius: 14px;
         width: 116px;
-        height: 60px;
+        height: 68px;
         object-fit: cover;
     }
 
 }
 
 @media (max-width: 767.98px) {
-    .restaurant-img {
-        width: 60px;
+    .restaurant {
+        &-img {
+            width: 60px;
+        }
+        
+        &-item {
+            height: 74px;
+            gap: 15px;
+        }
     }
 }
