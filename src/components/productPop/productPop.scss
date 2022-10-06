@@ -130,14 +130,14 @@
 
     &__button {
         position: fixed;
-        bottom: 0;
+        bottom: 20px;
         width: 90%;
         margin-top: 21px;
         margin-bottom: 25px;
         min-height: 50px;
     }
     &__whitespace {
-        min-height: 100px;
+        min-height: 120px;
     }
 }
 
