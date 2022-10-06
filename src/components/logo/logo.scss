@@ -1,6 +1,9 @@
 @import '../../style/variables.scss';
 
-.logo_image {
-    max-width: 100px;
+.logo {
+    cursor: pointer;
+    &_image {
+        max-width: 100px;
+    }
 }
 
