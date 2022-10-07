@@ -5,7 +5,7 @@ import './top.scss';
 
 const Top = (props) => {
 
-    const { showTopBar, text } = props;
+    const { showTopBar, text, backRoute } = props;
 
     const [topClassName, setTopClassName] = useState("top");
 
@@ -21,7 +21,7 @@ const Top = (props) => {
 
     return (
         <div
-            onClick={() => navigate(-1)}
+            onClick={() => navigate(backRoute ? backRoute : -1)}
             className={topClassName}>
             <div className="top-arrow-back">
                 <img className="top__chevron" src={chevron} alt="back" />

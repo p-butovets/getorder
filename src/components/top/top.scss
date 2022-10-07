@@ -15,8 +15,8 @@
     transition: $transition;
 
     &-title {
-        font-weight: 800;
-        font-size: 16px;
+        font-weight: 700;
+        font-size: 20px;
         line-height: 25px;
     }
 
@@ -36,5 +36,22 @@
     &_visible {
         position: fixed;
         top: 0;
+    }
+}
+
+@media (min-width: 767.98px) {
+    .top {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 31px;
+        padding-left: 20vw;
+        &-arrow-back {
+            position: static;
+            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }
