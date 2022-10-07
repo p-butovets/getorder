@@ -11,42 +11,4 @@
             width: 100%;
         }
     }
-    
-    &__top {
-        height: 88px;
-        width: 100%;
-        box-shadow: $shadow;
-        background: #fff;
-        z-index: 10;
-        position: absolute;
-        top: -200px;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: $transition;
-        &-title {
-            font-weight: 800;
-            font-size: 16px;
-            line-height: 25px;
-        }
-
-        &-arrow-back {
-            height: 40px;
-            width: 40px;
-            position: absolute;
-            top: 25px;
-            left: 14px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-
-        &_visible {
-            position: fixed;
-            top: 0;
-        }
-    }
 }
