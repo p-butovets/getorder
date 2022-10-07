@@ -5,7 +5,7 @@ import './top.scss';
 
 const Top = (props) => {
 
-    const showTopBar = props.showTopBar;
+    const { showTopBar, text } = props;
 
     const [topClassName, setTopClassName] = useState("top");
 
@@ -26,7 +26,7 @@ const Top = (props) => {
             <div className="top-arrow-back">
                 <img className="top__chevron" src={chevron} alt="back" />
             </div>
-            <div className="top-title">Оформлення замовлення</div>
+            <div className="top-title">{text}</div>
         </div>
     )
 }

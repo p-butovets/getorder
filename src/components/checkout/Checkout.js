@@ -30,7 +30,7 @@ const Checkout = (props) => {
 
     return (
         <>
-            <Top showTopBar={showTopBar} />
+            <Top showTopBar={showTopBar} text={"Оформлення замовлення"} />
             <div className="checkout__section">
                 <div className="checkout__section-title">Ваше замовлення</div>
                 <CartItem productId={"cbc70c7e-5fa4-4edc-c01d-08d95c238f00"} />
