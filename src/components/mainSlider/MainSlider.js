@@ -20,9 +20,13 @@ const MainSlider = () => {
         return () => clearInterval(timer)
     }, [])
 
-    //не показываем slider на странице checkout
+    //не показываем slider на странице checkout, terms, privacity, about
     useEffect(() => {
-        if (pathname === '/checkout') {
+        if (pathname === '/checkout'
+            || pathname === '/terms'
+            || pathname === '/privacity'
+            || pathname === '/about'
+        ) {
             setVisibility(false)
         } else {
             setVisibility(true)
