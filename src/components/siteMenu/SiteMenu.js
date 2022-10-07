@@ -39,13 +39,25 @@ const SiteMenu = (props) => {
                     </div>
                 </div>
                 <div className="site-nav__footer">
-                    <div className="site-nav__item">
+                    <div className="site-nav__item"
+                        onClick={() => {
+                            navigate('/about')
+                            setSlided(false)
+                        }}>
                         <div className="site-nav__item-title">Інформація про компанію</div>
                     </div>
-                    <div className="site-nav__item">
+                    <div className="site-nav__item"
+                        onClick={() => {
+                            navigate('/terms')
+                            setSlided(false)
+                        }}>
                         <div className="site-nav__item-title">Умови використання</div>
                     </div>
-                    <div className="site-nav__item">
+                    <div className="site-nav__item"
+                        onClick={() => {
+                            navigate('/privacity')
+                            setSlided(false)
+                        }}>
                         <div className="site-nav__item-title">Політика конфіденційності</div>
                     </div>
                 </div>

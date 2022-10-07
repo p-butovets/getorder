@@ -14,11 +14,13 @@ import Menu from "../menu/Menu";
 import Cart from "../cart/Cart";
 import Confirmer from "../confirmer/Confirmer";
 import Checkout from "../checkout/Checkout";
+import Article from "../article/Article";
 import './main.scss';
 
 //как-будто запросы на бекенд
 import restaurants from '../../data/restaurants.json';
 import menu from '../../data/menu.json';
+import articles from '../../data/articles.json';
 
 const Main = (props) => {
 
@@ -138,6 +140,9 @@ const Main = (props) => {
                     </>
                 } />
                 <Route path='/checkout' element={<Checkout showTopBar={showTopBar} />} />
+                <Route path='/terms' element={<Article articleText={articles.terms} showTopBar={showTopBar} text={"Умови використання"} />} />
+                <Route path='/about' element={<Article articleText={articles.about} showTopBar={showTopBar} text={"Інформація про компанію"} />} />
+                <Route path='/privacity' element={<Article articleText={articles.privacity} showTopBar={showTopBar} text={"Політика конфіденційності"} />} />
             </Routes>
         </section>
     )
