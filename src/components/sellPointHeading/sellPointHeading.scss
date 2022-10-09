@@ -69,14 +69,11 @@
         &__name {
             font-size: 24px;
         }
-        &__right {
-            display: none;
-        }
     }
 }
 
 // remove phone button on desctop
-@media (max-width: 767.98px) {
+@media (min-width: 767.98px) {
     .restaurant-heading__right {
         display: none;
     } 
