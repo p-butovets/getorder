@@ -3,7 +3,9 @@
 .restaurant-heading {
     color: $text-color;
     padding-left: 18px;
-
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     &__name {
         font-weight: 800;
         font-size: 36px;
@@ -20,7 +22,10 @@
         justify-content: flex-start;
         align-items: center;
         gap: 22px;
-        // padding-top: 7px;
+    }
+    &__right {
+        padding-top: 10px;
+        cursor: pointer;
     }
 }
 
