@@ -39,6 +39,30 @@
     line-height: 18px;
 }
 
+.contacts {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    color: $text-color;
+    &-item {
+        display: block;
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 25px;
+        text-decoration: none;
+        color: $text-color;
+    }
+    &-text {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+        color: $text-color;
+    }
+}
+
 @media (max-width: 767.98px) {
     .restaurant-heading {
         padding-left: 13px; 
