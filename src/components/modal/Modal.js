@@ -50,9 +50,7 @@ const View = (props) => {
             <div
                 onClick={() => setModalActive(false)}
                 className={`modal__overlay ${modalActive ? "modal__overlay_active" : ""}`}></div>
-            <div className={`modal 
-            ${smaller ? "smaller" : ""}
-            ${modalActive ? "modal_active" : ""}`}>
+            <div className={`modal ${smaller ? "smaller" : ""} ${modalActive ? "modal_active" : ""}`}>
                 {productId ?
                     <ProductPop
                         productId={productId}
