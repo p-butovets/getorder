@@ -8,6 +8,8 @@ import CartItem from '../cartItem/CartItem';
 import Button from '../button/Button';
 import Modal from "../modal/Modal";
 import Total from '../total/Total';
+import Success from '../success/Success';
+import ButtonSpinner from '../buttonSpinner/ButtonSpinner';
 import rocket from '../../resourses/topbar/rocket-icon.svg';
 import './cart.scss';
 //псевдозапрос на получение доступных типов доставки ресторана
@@ -24,6 +26,10 @@ const Cart = (props) => {
     //для закрепления блока при скролле
     const [positionStyle, setPositionStyle] = useState({ position: "static" });
 
+    //если orderSuccess: в модалке показываем котика-повара, иначе показываем форму оформления заказа
+    const [orderSuccess, setOrderSuccess] = useState(false);
+
+
     useEffect(() => {
         pinBars ?
             setPositionStyle({
@@ -35,22 +41,6 @@ const Cart = (props) => {
             :
             setPositionStyle({ position: "static" })
     }, [pinBars]);
-
-
-    const formik = useFormik({
-        initialValues: {
-            name: '',
-            phone: '',
-            email: '',
-            city: '',
-            street: '',
-            apt: '',
-            entrance: '',
-            comment: '',
-        },
-        onSubmit: values => console.log(JSON.stringify(values, null, 2)),
-    })
-
 
     return (
         <>
@@ -72,86 +62,126 @@ const Cart = (props) => {
             </div>
 
             <Modal modalActive={modalActive} setModalActive={setModalActive}>
-                <form className="form" onSubmit={formik.handleSubmit}>
-                    <div className="checkout-pop">
-                        <div className="checkout-pop__left">
-                            <div className="form__section-header">Ваші контакти</div>
-                            <input
-                                id='name'
-                                name='name'
-                                type='text'
-                                placeholder='Імʼя'
-                                value={formik.values.name}
-                                onChange={formik.handleChange} />
-                            <input
-                                id='phone'
-                                name='phone'
-                                type='phone'
-                                placeholder='Телефон'
-                                value={formik.values.phone}
-                                onChange={formik.handleChange} />
-                            <input
-                                id='email'
-                                name='email'
-                                type='email'
-                                placeholder='Email'
-                                value={formik.values.email}
-                                onChange={formik.handleChange} />
-                            <Modifier attribute={deliveryTypes} />
-                            <Modifier attribute={paymentTypes} />
-                        </div>
-                        <div className="checkout-pop__right">
-                            <div className="form__section-header">Введіть адресу доставки</div>
-                            <input
-                                id='city'
-                                name='city'
-                                type='text'
-                                placeholder='Місто'
-                                value={formik.values.city}
-                                onChange={formik.handleChange} />
-                            <input
-                                id='street'
-                                name='street'
-                                type='text'
-                                placeholder='Вулиця'
-                                value={formik.values.street}
-                                onChange={formik.handleChange} />
-                            <input
-                                id='apt'
-                                name='apt'
-                                type='text'
-                                placeholder='Будинок'
-                                value={formik.values.apt}
-                                onChange={formik.handleChange} />
-                            <input
-                                id='entrance'
-                                name='entrance'
-                                type='text'
-                                placeholder='Підʼїзд'
-                                value={formik.values.entrance}
-                                onChange={formik.handleChange} />
-                            <div className="form__section-header">Коментар</div>
-                            <input
-                                id='comment'
-                                name='comment'
-                                type='text'
-                                placeholder='Коментар до замовлення'
-                                value={formik.values.comment}
-                                onChange={formik.handleChange} />
-                            <Total />
-                            <button className="cart-confirm" type="submit">
-                                <div className="cart-confirm-button">
-                                    <div className="button-text">замовити 4 позиції</div>
-                                    <div className="rocket-icon">
-                                        <img src={rocket} alt="rocket" />
-                                    </div>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                {orderSuccess ?
+                    <Success modalActive={modalActive} setModalActive={setModalActive} />
+                    :
+                    <Form setOrderSuccess={setOrderSuccess} />}
             </Modal>
         </>
+    )
+}
+
+const Form = (props) => {
+
+    const [loading, setLoading] = useState(false)
+
+    const setOrderSuccess = props.setOrderSuccess;
+
+    //фейковая задержка по клику на сабмит
+    const clickHandler = () => {
+        //1 пошла типа отправка запроса
+        setLoading(true);
+        //2 через 2 сек запрос ок
+        setTimeout(() => setOrderSuccess(true), 2000)
+    }
+
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            phone: '',
+            email: '',
+            city: '',
+            street: '',
+            apt: '',
+            entrance: '',
+            comment: '',
+        },
+        onSubmit: values => console.log(JSON.stringify(values, null, 2)),
+    })
+
+    return (
+        <form className="form" onSubmit={formik.handleSubmit}>
+            <div className="checkout-pop">
+                <div className="checkout-pop__left">
+                    <div className="form__section-header">Ваші контакти</div>
+                    <input
+                        id='name'
+                        name='name'
+                        type='text'
+                        placeholder='Імʼя'
+                        value={formik.values.name}
+                        onChange={formik.handleChange} />
+                    <input
+                        id='phone'
+                        name='phone'
+                        type='phone'
+                        placeholder='Телефон'
+                        value={formik.values.phone}
+                        onChange={formik.handleChange} />
+                    <input
+                        id='email'
+                        name='email'
+                        type='email'
+                        placeholder='Email'
+                        value={formik.values.email}
+                        onChange={formik.handleChange} />
+                    <Modifier attribute={deliveryTypes} />
+                    <Modifier attribute={paymentTypes} />
+                </div>
+                <div className="checkout-pop__right">
+                    <div className="form__section-header">Введіть адресу доставки</div>
+                    <input
+                        id='city'
+                        name='city'
+                        type='text'
+                        placeholder='Місто'
+                        value={formik.values.city}
+                        onChange={formik.handleChange} />
+                    <input
+                        id='street'
+                        name='street'
+                        type='text'
+                        placeholder='Вулиця'
+                        value={formik.values.street}
+                        onChange={formik.handleChange} />
+                    <input
+                        id='apt'
+                        name='apt'
+                        type='text'
+                        placeholder='Будинок'
+                        value={formik.values.apt}
+                        onChange={formik.handleChange} />
+                    <input
+                        id='entrance'
+                        name='entrance'
+                        type='text'
+                        placeholder='Підʼїзд'
+                        value={formik.values.entrance}
+                        onChange={formik.handleChange} />
+                    <div className="form__section-header">Коментар</div>
+                    <input
+                        id='comment'
+                        name='comment'
+                        type='text'
+                        placeholder='Коментар до замовлення'
+                        value={formik.values.comment}
+                        onChange={formik.handleChange} />
+                    <Total />
+                    <button className="cart-confirm" type="submit"
+                        onClick={() => clickHandler()}>
+                        {loading ?
+                            <ButtonSpinner />
+                            :
+                            <div className="cart-confirm-button">
+                                <div className="button-text">замовити 4 позиції</div>
+                                <div className="rocket-icon">
+                                    <img src={rocket} alt="rocket" />
+                                </div>
+                            </div>}
+                    </button>
+                </div>
+            </div>
+        </form>
     )
 }
 
