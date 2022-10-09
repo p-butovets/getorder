@@ -1,8 +1,13 @@
+import { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import Modifier from '../modifier/Modifier';
 import CartItem from '../cartItem/CartItem';
 import Total from '../total/Total';
 import Top from '../top/Top';
+import Screen from '../screen/Screen';
+import Success from '../success/Success';
+import Button from '../button/Button';
+import ButtonSpinner from '../buttonSpinner/ButtonSpinner';
 import rocket from '../../resourses/topbar/rocket-icon.svg';
 //псевдозапрос на получение доступных типов доставки ресторана
 import deliveryTypes from '../../data/deliveryTypes.json';
@@ -13,6 +18,34 @@ import './checkout.scss';
 const Checkout = (props) => {
 
     const showTopBar = props.showTopBar;
+
+    const [loading, setLoading] = useState(false);
+
+    //боковой экран слева
+    const [openScreen, setOpenScreen] = useState(false);
+
+    //если orderSuccess: в боковой экран слева показываем котика-повара
+    const [orderSuccess, setOrderSuccess] = useState(false);
+
+    //фейковая задержка по клику на сабмит
+    const clickHandler = () => {
+        //1 пошла типа отправка запроса
+        setLoading(true);
+        //2 через 2 сек запрос ок
+        setTimeout(() => {
+            setOrderSuccess(true);
+            setLoading(false);
+        }, 2000)
+    }
+
+    //если успешный заказ - выезжает слева экран success
+    useEffect(() => {
+        if (orderSuccess) {
+            setOpenScreen(true)
+        } else {
+            setOpenScreen(false)
+        }
+    }, [orderSuccess])
 
     const formik = useFormik({
         initialValues: {
@@ -30,6 +63,12 @@ const Checkout = (props) => {
 
     return (
         <>
+            <Screen side={"left"} openScreen={openScreen} setOpenScreen={setOpenScreen}>
+                <Success />
+                <div className="success-button"
+                    onClick={() => setOpenScreen(!openScreen)}
+                >В КАБІНЕТ</div>
+            </Screen>
             <Top showTopBar={showTopBar} text={"Оформлення замовлення"} />
             <div className="checkout__section">
                 <div className="checkout__section-title">Ваше замовлення</div>
@@ -93,15 +132,18 @@ const Checkout = (props) => {
                         onChange={formik.handleChange} />
                     <Modifier attribute={paymentTypes} />
                     <Total />
-                    <button className="cart-confirm" type="submit">
-                        <div className="cart-confirm-button">
-                            <div className="button-text">замовити 4 позиції</div>
-                            <div className="rocket-icon">
-                                <img src={rocket} alt="rocket" />
+                    {loading ?
+                        <ButtonSpinner />
+                        :
+                        <button className="cart-confirm" type="submit"
+                            onClick={() => clickHandler()}>
+                            <div className="cart-confirm-button">
+                                <div className="button-text">замовити 4 позиції</div>
+                                <div className="rocket-icon">
+                                    <img src={rocket} alt="rocket" />
+                                </div>
                             </div>
-                        </div>
-                    </button>
-
+                        </button>}
                 </form>
             </div>
 

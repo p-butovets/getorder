@@ -2,7 +2,12 @@ import './button.scss';
 
 const Button = (props) => {
 
-    const { className, modalActive, setModalActive, setConfirmerVisibility } = props;
+    const {
+        className,
+        modalActive,
+        setModalActive,
+        setConfirmerVisibility,
+    } = props;
 
     return (
         <div

@@ -1,7 +1,12 @@
 .button-spinner {
     // margin: 100px auto 0;
-    width: 70px;
+    width: 100%;
+    min-height: 58px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 14px;
 }
 
 .button-spinner>div {

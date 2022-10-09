@@ -63,7 +63,12 @@ const Cart = (props) => {
 
             <Modal modalActive={modalActive} setModalActive={setModalActive}>
                 {orderSuccess ?
-                    <Success modalActive={modalActive} setModalActive={setModalActive} />
+                    <>
+                        <Success />
+                        <div className="success-button"
+                            onClick={() => setModalActive(!modalActive)}
+                        >В КАБІНЕТ</div>
+                    </>
                     :
                     <Form setOrderSuccess={setOrderSuccess} />}
             </Modal>
@@ -82,7 +87,10 @@ const Form = (props) => {
         //1 пошла типа отправка запроса
         setLoading(true);
         //2 через 2 сек запрос ок
-        setTimeout(() => setOrderSuccess(true), 2000)
+        setTimeout(() => {
+            setOrderSuccess(true);
+            setLoading(false);
+        }, 2000)
     }
 
     const formik = useFormik({
