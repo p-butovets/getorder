@@ -1,47 +1,47 @@
-@import '../../style/variables.scss';
+@import "../../style/variables.scss";
 
 .product {
-    color: $text-color;
-    width: 50%;
-    padding: 16px;
-    cursor: pointer;
-    &__view {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-    &__img {
-        width: 84px;
-    }
-    &__name {
-        font-weight: 800;
-        font-size: $product-name-fz;
-        line-height: 20px;
-    }
-    &__description {
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 15px;
-        padding-top: 6px;
-        padding-bottom: 6px;
-    }
-    &__price {
-        font-weight: 800;
-        font-size: $product-name-fz;
-        line-height: 20px;
-    }
-    &__func {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 11px;
-        padding-bottom: 21px;
-        border-bottom: 1px solid #F0F0F0;
-    }
+	color: $text-color;
+	width: 50%;
+	padding: 16px;
+	cursor: pointer;
+	&__view {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	&__img {
+		width: 84px;
+	}
+	&__name {
+		font-weight: 800;
+		font-size: $product-name-fz;
+		line-height: 20px;
+	}
+	&__description {
+		font-weight: 500;
+		font-size: $rest-descr-fz;
+		line-height: 15px;
+		padding-top: 6px;
+		padding-bottom: 6px;
+	}
+	&__price {
+		font-weight: 800;
+		font-size: $product-name-fz;
+		line-height: 20px;
+	}
+	&__func {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 11px;
+		padding-bottom: 21px;
+		border-bottom: 1px solid #f0f0f0;
+	}
 }
 
 @media (max-width: 991.98px) {
-    .product {
-        width: 100%;
-    }
+	.product {
+		width: 100%;
+	}
 }

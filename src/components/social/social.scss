@@ -1,67 +1,67 @@
-@import '../../style/variables.scss';
+@import "../../style/variables.scss";
 
 .social {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap:17px;
-    padding: 0 10px 10px 10px;
-    &-title {
-        color: #000000;
-        font-weight: 800;
-        font-size: $category-name-fz;
-        line-height: 23px;
-    }
-    &-icons {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 10px;
-    }
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 17px;
+	padding: 0 10px 10px 10px;
+	&-title {
+		color: $text-color;
+		font-weight: 800;
+		font-size: $category-name-fz;
+		line-height: 23px;
+	}
+	&-icons {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+		gap: 10px;
+	}
 }
 
 .social_mob {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 17px;
-    padding: 0 10px 10px 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 17px;
+	padding: 0 10px 10px 10px;
 
-    &-title {
-        color: #000000;
-        font-weight: 800;
-        font-size: $category-name-fz;
-        line-height: 23px;
-    }
+	&-title {
+		color: $text-color;
+		font-weight: 800;
+		font-size: $category-name-fz;
+		line-height: 23px;
+	}
 
-    &-icons {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
+	&-icons {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+	}
 }
 
 @media (max-width: 767.98px) {
-    .social {
-        display: none;
+	.social {
+		display: none;
 
-        &_mob {
-            display: flex;
-        }
-    }
+		&_mob {
+			display: flex;
+		}
+	}
 }
 
 @media (min-width: 767.98px) {
-    .social {
-        display: flex;
+	.social {
+		display: flex;
 
-        &_mob {
-            display: none;
-        }
-    }
+		&_mob {
+			display: none;
+		}
+	}
 }
