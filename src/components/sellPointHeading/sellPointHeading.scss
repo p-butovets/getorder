@@ -1,80 +1,100 @@
-@import '../../style/variables.scss';
+@import "../../style/variables.scss";
 
 .restaurant-heading {
-    color: $text-color;
-    padding-left: 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    &__name {
-        font-weight: 800;
-        font-size: 36px;
-        line-height: 45px;
-    }
-    &__description {
-        font-weight: 500;
-        font-size: $rest-descr-fz;
-        line-height: 15px;
-    }
-    &__info {
-        height: 40px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 22px;
-    }
-    &__right {
-        padding-top: 10px;
-        cursor: pointer;
-    }
+	color: $text-color;
+	padding-left: 18px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	&__name {
+		font-weight: 800;
+		font-size: 36px;
+		line-height: 45px;
+	}
+	&__description {
+		font-weight: 500;
+		font-size: $rest-descr-fz;
+		line-height: 15px;
+	}
+	&__info {
+		height: 40px;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 22px;
+	}
+	&__changer {
+		padding: 5px 7px 5px 0;
+		display: inline-block;
+		color: $main-color;
+		font-weight: 700;
+		font-size: $price-fz;
+		line-height: 18px;
+		cursor: pointer;
+		&-wrap {
+			@include y-overflower;
+			padding-right: 10px;
+		}
+	}
+	&__right {
+		padding-top: 10px;
+		cursor: pointer;
+	}
 }
 
 .info-item {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap:7px;
-    font-weight: 900;
-    font-size: 14px;
-    line-height: 18px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 7px;
+	font-weight: 900;
+	font-size: $price-fz;
+	line-height: 18px;
 }
 
 .contacts {
-    padding-top: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 22px;
-    color: $text-color;
-    &-item {
-        display: block;
-        font-weight: 800;
-        font-size: 20px;
-        line-height: 25px;
-        text-decoration: none;
-        color: $text-color;
-    }
-    &-text {
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 18px;
-        color: $text-color;
-    }
+	padding-top: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 22px;
+	color: $text-color;
+	&-item {
+		display: block;
+		font-weight: 800;
+		font-size: 20px;
+		line-height: 25px;
+		text-decoration: none;
+		color: $text-color;
+	}
+	&-text {
+		font-weight: 600;
+		font-size: $price-fz;
+		line-height: 18px;
+		color: $text-color;
+	}
 }
 
 @media (max-width: 767.98px) {
-    .restaurant-heading {
-        padding-left: 13px; 
-        &__name {
-            font-size: 24px;
-        }
-    }
+	.restaurant-heading {
+		padding-left: 13px;
+		&__name {
+			font-size: $rest-name-fz;
+		}
+		&__changer {
+			&-wrap {
+				&::-webkit-scrollbar {
+					display: none;
+				}
+			}
+		}
+	}
 }
 
 // remove phone button on desctop
 @media (min-width: 767.98px) {
-    .restaurant-heading__right {
-        display: none;
-    } 
+	.restaurant-heading__right {
+		display: none;
+	}
 }

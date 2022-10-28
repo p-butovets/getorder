@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Modal from "../modal/Modal";
+import RestaurantList from '../restaurantList/RestaurantList';
+import Heading from "../heading/Heading";
 import clock from '../../resourses/icons/clock.svg';
 import like from '../../resourses/icons/like.svg';
 import phone from '../../resourses/icons/phone.svg';
@@ -11,6 +13,10 @@ import restaurants from '../../data/restaurants.json';
 
 const SellPointHeading = (props) => {
 
+    //состояние модалки со списком ресторанов
+    const [popupActive, setPopupActive] = useState(false);
+
+    //состояние модалки с телефоном
     const [modalActive, setModalActive] = useState(false);
 
     const orderRestaurant = props.orderRestaurant;
@@ -46,6 +52,11 @@ const SellPointHeading = (props) => {
                             4,5
                         </span>
                     </div>
+                    <div
+                        onClick={() => setPopupActive(!popupActive)}
+                        className="restaurant-heading__changer">
+                        змінити заклад
+                    </div>
                 </div>
                 <div className="restaurant-heading__right"
                     onClick={() => setModalActive(!modalActive)}>
@@ -57,6 +68,13 @@ const SellPointHeading = (props) => {
                     <a className="contacts-item" href="tel:+380995555555">+38 099 555 55 55</a>
                     <a className="contacts-item" href="tel:+380995555555">+38 099 555 55 55</a>
                     <div className="contacts-text">Приймаємо дзвінки з 10:00 до 21:00</div>
+                </div>
+            </Modal>
+
+            <Modal modalActive={popupActive} setModalActive={setPopupActive}>
+                <div className="restaurant-heading__changer-wrap">
+                    <Heading description={"Виберіть ресторан:"} />
+                    <RestaurantList setOrderRestaurant={() => console.log("Не устанавливаем")} />
                 </div>
             </Modal>
         </>
