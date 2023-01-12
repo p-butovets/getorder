@@ -1,54 +1,53 @@
-@import '../../style/variables.scss';
-
+@import "../../style/variables.scss";
 
 .order-type {
-    color: $text-color;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 19px;
-    padding-top: 13px;
+	color: $text-color;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 19px;
+	padding-top: 13px;
 
-    &_item {
-        width: 173px;
-        height: 137px;
-        padding-top: 17px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        max-height: 137px;
-        background: $background-color;
-        border: 1px solid #F1F0F0;
-        border-radius: 14px;
-        cursor: pointer;
+	&_item {
+		width: 173px;
+		height: 137px;
+		padding-top: 17px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-height: 137px;
+		background: $background-color;
+		border: 1px solid $secondary-color;
+		border-radius: 14px;
+		cursor: pointer;
 
-        &-title {
-            font-weight: 700;
-            font-size: $product-name-fz;
-            line-height: 25px;
-            text-align: center;
-            padding-top: 17px;
-        }
-    }
+		&-title {
+			font-weight: 700;
+			font-size: $product-name-fz;
+			line-height: 25px;
+			text-align: center;
+			padding-top: 17px;
+		}
+	}
 }
 
 @media (max-width: 767.98px) {
-    .order-type {
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 15px;
-        &_item {
-            flex-direction: row;
-            width: 100%;
-            height: 72px;
-            padding: 0 0 0 25px;
-            &-title {
-                font-size: 20px;
-                line-height: 25px;
-                margin-left: 9px;
-                padding-top: 0;
-            }
-        }
-    }
+	.order-type {
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 15px;
+		&_item {
+			flex-direction: row;
+			width: 100%;
+			height: 72px;
+			padding: 0 0 0 25px;
+			&-title {
+				font-size: 20px;
+				line-height: 25px;
+				margin-left: 9px;
+				padding-top: 0;
+			}
+		}
+	}
 }

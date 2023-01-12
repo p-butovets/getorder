@@ -1,84 +1,82 @@
-@import '../../style/variables.scss';
+@import "../../style/variables.scss";
 
 .modifier {
-    margin-bottom: 15px;
-    width: 100%;
-    max-width: 500px;
+	margin-bottom: 15px;
+	width: 100%;
+	max-width: 500px;
 
-    &__wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-    }
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
+	}
 
+	&__title {
+		padding-bottom: 13px;
+		font-weight: 800;
+		font-size: $product-name-fz;
+		line-height: 20px;
+	}
 
-    &__title {
-        padding-bottom: 13px;
-        font-weight: 800;
-        font-size: 16px;
-        line-height: 20px;
-    }
+	&_invisible {
+		display: none;
+	}
 
-    &_invisible {
-        display: none;
-    }
+	&__name {
+		cursor: pointer;
+		position: relative;
 
-    &__name {
-        cursor: pointer;
-        position: relative;
+		&:before {
+			transition: $transition;
+			position: absolute;
+			top: 0;
+			left: -20px;
+			content: "";
+			background-image: $on;
+			width: 16px;
+			height: 16px;
+		}
+	}
 
-        &:before {
-            transition: $transition;
-            position: absolute;
-            top: 0;
-            left: -20px;
-            content: '';
-            background-image: $on;
-            width: 16px;
-            height: 16px;
-        }
-    }
+	&__name_checked {
+		cursor: pointer;
+		position: relative;
 
-    &__name_checked {
-        cursor: pointer;
-        position: relative;
+		&:before {
+			transition: $transition;
+			position: absolute;
+			top: 0;
+			left: -20px;
+			content: "";
+			background-image: $off;
+			width: 16px;
+			height: 16px;
+		}
+	}
 
-        &:before {
-            transition: $transition;
-            position: absolute;
-            top: 0;
-            left: -20px;
-            content: '';
-            background-image: $off;
-            width: 16px;
-            height: 16px;
-        }
-    }
+	&__item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 14px;
+		padding-left: 20px;
 
-    &__item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 14px;
-        padding-left: 20px;
+		font-weight: 500;
+		font-size: $product-name-fz;
+		line-height: 14px;
+	}
 
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 14px;
-    }
-
-    &__price {
-        padding-right: 10px;
-        color: #8A8A8A;
-    }
+	&__price {
+		padding-right: 10px;
+		color: #8a8a8a;
+	}
 }
 
-
 @media (max-width: 767.98px) {
-    .modifier__wrapper {
-        min-width: 100%;
-        margin-top: 17px;
-    }
+	.modifier__wrapper {
+		min-width: 100%;
+		margin-top: 17px;
+	}
 }

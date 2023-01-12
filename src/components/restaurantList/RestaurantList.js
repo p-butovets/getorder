@@ -46,7 +46,7 @@ const Restaurant = (props) => {
                 <img src={img} className="restaurant-img" alt={title} />
                 <div className="restaurant-info">
                     <div className="restaurant-title">{title}</div>
-                    <div className="restaurant-address">{address + city}</div>
+                    <div className="restaurant-address">{`${address}, ${city}`}</div>
                 </div>
             </div>
         </>

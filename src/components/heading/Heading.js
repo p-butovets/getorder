@@ -8,7 +8,7 @@ const Heading = (props) => {
     return (
         <div className="brand-heading">
             <div className="brand-heading__name">
-                Mamamia!
+                IlMolino
             </div>
             <div className="brand-heading__description">
                 {description}

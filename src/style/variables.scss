@@ -1,8 +1,8 @@
 //colors
 $text-color: #000000;
-$main-color: #FDBF26;
-$secondary-color: #F1F0F0;
-$background-color: #F7F7F7;
+$main-color: #fdbf26;
+$secondary-color: #f1f0f0;
+$background-color: #f7f7f7;
 
 //font-sizing
 $rest-name-fz: 24px;
@@ -16,10 +16,24 @@ $translate-btn-fz: 13px;
 //transitions
 $transition: all 0.4s;
 
-//sahdow 
+//sahdow
 $shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+	rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
 //checkbox
-$on: url('../../resourses/modifierItem/radio.svg');
-$off: url('../../resourses/modifierItem/radio_on.svg');
+$on: url("../../resourses/modifierItem/radio.svg");
+$off: url("../../resourses/modifierItem/radio_on.svg");
+
+//mixins
+@mixin y-overflower {
+	overflow-y: auto;
+	height: 100%;
+	&::-webkit-scrollbar {
+		width: 3px;
+		background-color: #f5f5f5;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #e4e4e4ff;
+		border-radius: 5px;
+	}
+}
